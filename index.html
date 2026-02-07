@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1E88E5">
+    <title>TopUp Centre</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <header class="top-bar">
+	  <div class="logo-section">
+		<img src="assets/logo.png" alt="Logo" class="app-logo" onerror="this.style.display='none'">
+		<span class="app-name">TopUp Centre</span>
+	  </div>
+	  <div class="balance-pill">
+		<span class="balance-icon">৳</span>
+		<span class="balance-amount">0</span>
+	  </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+	  <!-- Home Section -->
+	  <section id="home-section" class="content-section active">
+		<div class="section-header">
+		  <h2>Popular Games</h2>
+		  <div class="section-line"></div>
+		</div>
+		<div class="games-grid" id="games-container">
+		  <!-- Games will be loaded here dynamically -->
+		</div>
+	  </section>
+
+	  <!-- Top-Up Section -->
+	  <section id="topup-section" class="content-section">
+		<div class="section-header">
+		  <h2>Select Package</h2>
+		  <div class="section-line"></div>
+		</div>
+		<div class="package-list" id="package-container">
+		  <!-- Packages will be loaded here -->
+		</div>
+		<div class="checkout-form" id="checkout-container" style="display: none;">
+		  <!-- Checkout form will be loaded here -->
+		</div>
+	  </section>
+
+	  <!-- Add Balance Section -->
+	  <section id="balance-section" class="content-section">
+		<div class="section-header">
+		  <h2>Add Balance</h2>
+		  <div class="section-line"></div>
+		</div>
+		<div class="balance-methods">
+		  <div class="method-card" data-method="bkash">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="bKash">
+			<span>bKash</span>
+		  </div>
+		  <div class="method-card" data-method="nagad">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==" alt="Nagad">
+			<span>Nagad</span>
+		  </div>
+		</div>
+		<div class="balance-form" id="balance-form-container">
+		  <!-- Balance form will be shown here -->
+		</div>
+	  </section>
+
+	  <!-- My Orders Section -->
+	  <section id="orders-section" class="content-section">
+		<div class="section-header">
+		  <h2>My Orders</h2>
+		  <div class="section-line"></div>
+		</div>
+		<div class="orders-list" id="orders-container">
+		  <!-- Orders will be loaded here -->
+		</div>
+	  </section>
+
+	  <!-- Account Section -->
+	  <section id="account-section" class="content-section">
+		<div class="section-header">
+		  <h2>My Account</h2>
+		  <div class="section-line"></div>
+		</div>
+
+		<!-- Login Form -->
+		<div class="auth-container" id="auth-container">
+		  <div class="auth-form">
+			<h3>Login Required</h3>
+			<input type="text" id="username" placeholder="Username" class="input-field">
+			<input type="password" id="password" placeholder="Password" class="input-field">
+			<button class="btn-primary" id="login-btn">Login</button>
+			<button class="btn-secondary" id="register-btn">Register</button>
+		  </div>
+		</div>
+
+		<!-- Account Details (shown when logged in) -->
+		<div class="account-details" id="account-details" style="display: none;">
+		  <div class="user-info">
+			<div class="info-row">
+			  <span>Username:</span>
+			  <span id="user-name">-</span>
+			</div>
+			<div class="info-row">
+			  <span>Balance:</span>
+			  <span id="user-balance">৳ 0</span>
+			</div>
+		  </div>
+		  <div class="account-actions">
+			<button class="btn-secondary" id="admin-login-btn">Admin Login</button>
+			<button class="btn-danger" id="logout-btn">Logout</button>
+		  </div>
+		</div>
+
+		<!-- Admin Panel (hidden by default) -->
+		<div class="admin-panel" id="admin-panel" style="display: none;">
+		  <!-- Admin controls will be loaded here -->
+		</div>
+	  </section>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+	  <div class="nav-item active" data-section="home">
+		<svg class="nav-icon" viewBox="0 0 24 24">
+		  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+		</svg>
+		<span>Home</span>
+	  </div>
+	  <div class="nav-item" data-section="topup">
+		<svg class="nav-icon" viewBox="0 0 24 24">
+		  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+		</svg>
+		<span>Top-Up</span>
+	  </div>
+	  <div class="nav-item" data-section="balance">
+		<svg class="nav-icon" viewBox="0 0 24 24">
+		  <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+		</svg>
+		<span>Add Balance</span>
+	  </div>
+	  <div class="nav-item" data-section="orders">
+		<svg class="nav-icon" viewBox="0 0 24 24">
+		  <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+		</svg>
+		<span>My Orders</span>
+	  </div>
+	  <div class="nav-item" data-section="account">
+		<svg class="nav-icon" viewBox="0 0 24 24">
+		  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+		</svg>
+		<span>Account</span>
+	  </div>
+    </nav>
+
+    <!-- JavaScript Files -->
+    <script src="js/data.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
